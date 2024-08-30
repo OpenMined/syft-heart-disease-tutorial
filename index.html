@@ -1,0 +1,235 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/shell.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+
+    <script>hljs.highlightAll();</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7MDPQ4CF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-JN7MDPQ4CF');
+    </script>
+
+    <style>
+        * {
+            font-family: Rubik, serif;
+            font-weight: lighter;
+        }
+
+        code, pre {
+            font-family: "Fira Code", monospace;
+        }
+
+        #intro {
+            background-image: url("https://openmined.org/wp-content/uploads/2024/08/image-1-1-1024x501.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: bottom;
+            /*margin-bottom: 120px;*/
+
+        }
+
+        .head {
+            text-align: center;
+            align-items: center;
+            padding-top: 150px;
+        }
+
+        .head .logo {
+            padding-right: 50px;
+            max-width: 220px;
+        }
+
+        #intro .container {
+            margin-top: 150px;
+        }
+
+        main {
+            margin-top: 25px;
+        }
+
+        main .container .row {
+            margin: 20px 0;
+        }
+
+    </style>
+    <title>PySyft Heart Disease Tutorial</title>
+</head>
+<body>
+<header id="intro" class="align-items-center">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-md-12">
+            <div class="head">
+                <img class="logo" alt="Syft Logo" src="./Syft-Logo-Stacked.png">
+                <br>
+                <h1 class="display-3">Study Heart Disease using PySyft</h1>
+            </div>
+
+        </div>
+    </div>
+    <div class='container'>
+        <div class="row align-content-center">
+            <div class="col-md-10">
+                <h2 class="display-4">Welcome!</h2>
+                <p>
+                    In this tutorial we will study Heart Disease using Machine learning, and PySyft.
+                    In particular PySyft will be crucial to work with
+                    <b>multiple medical datasets</b>, and while retaining privacy!
+                </p>
+                <figure>
+                    <p>The task that we are about to challenge ourselves is:</p>
+                    <blockquote class="blockquote display-6">
+                        <p>Can we run Machine Learning models on
+                        (non-public) medical data, <em>without seeing the data</em>?
+                        </p>
+                    </blockquote>
+                    <p>
+                        In this tutorial we will learn <b>How</b> using PySyft!
+                        &hyphen;&hyphen;&hyphen;
+                        <span>Let&#39;s get started! 🚀</span>
+                    </p>
+                </figure>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    <div class='container'>
+        <div class="row">
+            <div class="col">
+                <h3><span>Heart Disease Study 💟 </span></h3>
+                <p>We will use the <strong>full</strong> version of the Heart Disease dataset, as available on <a href='https://archive.ics.uci.edu/dataset/45/heart+disease'>UCI ML</a>.</p>
+                <p>This database is the result of a study for the diagnosis of coronary artery disease, as presented in this <a href='https://www.semanticscholar.org/paper/International-application-of-a-new-probability-for-Detrano-J%C3%A1nosi/a7d714f8f87bfc41351eb5ae1e5472f0ebbe0574'>paper</a>.</p>
+                <p>The <em>full</em> dataset contains the data as collected by patients in four different hospitals, in 1988: </p>
+                <ul>
+                    <li>Cleveland Clinic in Cleveland, Ohio (<code>303</code> patients);</li>
+                    <li>Hungarian Institute of Cardiology in Budapest, Hungary (<code>425</code> patients);</li>
+                    <li>Veterans Administration Medical Center in Long Beach, California (<code>200</code> patients)</li>
+                    <li>University Hospitals in Zurich and Basel (<code>143</code> patients).</li>
+                </ul>
+                <p>💡 Each Hospital will correspond to a <u>single PySyft Datasite, hosting their own
+                    version of the <code>Heart Study Data</code></u>.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                <h3><span>Content 🧑‍💻</span></h3>
+                <p>
+                    The tutorial is organised into multiple Jupyter notebooks that allow you to
+                    work on the different steps of our Machine learning experiment, using PySyft.
+                </p>
+                <ul>
+                    <li>
+                        🧭 <a href='https://github.com/OpenMined/syft-heart-disease-tutorial/blob/main/00-Setup-Datasite.ipynb' title="Setup Datasites" target="_blank">
+                            (Intro) Setup Datasite</a>
+                        <p>
+                            <span class="blockquote-footer">
+                            In this first notebook, we will familiarise with the data,
+                            and the Datasites
+                            </span>
+                        </p>
+                    </li>
+                    <li>✅
+                        <a href='https://github.com/OpenMined/syft-heart-disease-tutorial/blob/main/01-Compare-Demographics.ipynb'
+                           title="Compare Demographics" target="_blank">
+                        1. Compare Demographics</a>
+                        <p>
+                            <span class="blockquote-footer">
+                                In this notebook we will start our data science journey,
+                                study the distribution of the demographics in the data.
+                                This information is very valuable as a first step, to get
+                                insights about the data! The interesting part? We will
+                                gather all the demographics across the four datasets
+                                <em>without accessing the data</em>!
+                            </span>
+                        </p>
+                    </li>
+                    <li> 🌟 <a href='https://github.com/OpenMined/syft-heart-disease-tutorial/blob/main/02-Model-Training-Experiment.ipynb'
+                           title="ML Model Training Experiment" target="_blank">
+                            2. ML Model Training Experiment</a>:
+                        <p>
+                            <span class="blockquote-footer">
+                                Let's use PySyft to train a Machine learning classifier,
+                            using data across the four distributed datasites, and
+                            <em>without seeing the data</em>! We will learn how to train
+                                a model, without looking at the data!
+                                This is going to be our 🌟 research experiment with PySyft!
+                            </span>
+                        </p>
+                    </li>
+                    <li> 🌟🌟<a href='https://github.com/OpenMined/syft-heart-disease-tutorial/blob/main/03-Model-Evaluation-Experiment.ipynb'
+                           title="ML Model Evaluation Experiment" target="_blank">
+                        3. ML Model Evaluation Experiment</a>:
+                        <p><span class="blockquote-footer">
+                            It's now time to assess the performance of the trained classifiers
+                            on each remote datasite. We will gather evaluation metrics for
+                            the trained models, and compare the results!
+                            We will learn how to create specialised **Syft function**
+                            that guarantees control over the input/output policies of our
+                            remote code execution.
+
+                            This will be our 🌟🌟 research experiment with PySyft!
+                        </span>
+                        </p>
+                    </li>
+                    <li>🌟🌟🌟<a href='https://github.com/OpenMined/syft-heart-disease-tutorial/blob/main/04-Ensemble-learning-Experiment.ipynb'
+                           title="Ensemble Learning Experiment" target="_blank">
+                        4. Ensemble Learning Experiment</a> :
+                        <p>
+                            <span class="blockquote-footer">
+                                In this last step, we will use an Ensemble model as a strategy to
+                                combine the multiple ML models trained on the four datasets.
+                                In this way, we will be able to assess the performance of
+                                our classifier, using (indirectly) the knowledge
+                                gathered by training our models on multiple medical dataset!
+                                This will be our 🌟🌟🌟 and last research experiment with PySyft!
+                        </span>
+                    </p></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h3><span>Ready to get started ? 🚀</span></h3>
+                <p><em>Everything</em> you need to work on the tutorial is available on Github!
+                    All you need to do is to download or clone the repository on your computer,
+                    and start your journey!
+                </p>
+                <pre class="lead">
+<code class='theme-atom-one-dark language-shell'>$ git clone https://github.com/openmined/syft-heart-disease-tutorial
+</code>
+                </pre>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
