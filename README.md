@@ -5,18 +5,14 @@
 
 ### Welcome! 
 
-In this tutorial we will use PySyft to study Heart Disease! 
-The selected use case will work as a _proof-of-principle_ to demonstrate how it is possible to run machine learning experiments using (multiple) distributed medical datasets, while retaining privacy!<br>
-In particular, the challenge we want to tackle with this use case is:
-
-> Can we perform Data Science and Machine Learning experiments on (non-public) medical data, _without seeing the data_?
+In this tutorial we will use PySyft to study Heart Disease, using _multiple_ (and distributed) medical datasets, 
+while still retaining privacy of the data!
 <br>
+In particular, the challenge we want to tackle with this project is:
 
-In this tutorial we will learn _how this can be possible_, using PySyft!
-<br>
+> Can we perform Data Science and Machine Learning experiments using multiple medical dataset, _without seeing the data_?
 
-**Q:** What do you need to get started? <br>
-**A:** The `syft` package, and a Jupyter notebook!
+In this tutorial we will learn _how this can be possible_, using PySyft! All you need, is a Jupyter notebook!
 <br>
 
 Let's get started! 🚀
