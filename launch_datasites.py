@@ -30,10 +30,10 @@ class DataSiteThread(Thread):
 def show_connections_info():
     print(f"{'='*65}")
     print(
-        f"\n\t{len(CONNECTION_STRINGS)} DataSite{'s' if len(CONNECTION_STRINGS) > 1 else ''} Up and Running.",
+        f"\n\t{len(DATASITE_URLS)} DataSite{'s' if len(DATASITE_URLS) > 1 else ''} Up and Running.",
         end="\n\n",
     )
-    for dsid, (name, url) in enumerate(CONNECTION_STRINGS.items()):
+    for dsid, (name, url) in enumerate(DATASITE_URLS.items()):
         print(f"{dsid+1}. {name}: {url}")
     print(f"{'='*65}")
 
