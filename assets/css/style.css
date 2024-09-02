@@ -56,6 +56,11 @@ main .container .row {
     font-size: 1rem;
 }
 
+img.author {
+    max-width: 70%;
+    float: right;
+}
+
 /*
 Quote Style
 Adapted from: https://codepen.io/Rases/pen/pogVVwp
