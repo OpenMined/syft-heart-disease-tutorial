@@ -13,54 +13,63 @@ we will try to answer the following question:
 We are going to to learn _how_! 
 All you need to get started is PySyft, and a Jupyter notebook! 🚀
 
-## Table of Content
-
-- [(Intro) Setup Datasites](./00-Setup-Datasites.ipynb) [🧭]: 
-    Familiarise with the available PySyft Datasites
-- [1. Compare Demographics](./01-Compare-Demographics.ipynb) [✅]: 
-    Study the distribution of the demographics in the data, using PySyft 
-- [2. ML Model Training Experiment](./02-Model-Training-Experiment.ipynb) [🌟]: 
-    Use PySyft to train a Machine learning classifier, using data across the four distributed datasites, and _without seeing the data_!
-- [3. ML Model Evaluation Experiment](./03-Model-Evaluation-Experiment.ipynb) [🌟🌟]:
-    Assess the performance of the trained classifiers on each remote datasite.
-- [4. Ensemble Learning Experiment](./04-Ensemble-learning-Experiment.ipynb) [🌟🌟🌟]:
-    Create a model Ensemble using the models trained on each datasites, as a strategy to combine multiple ML models, trained on multiple datasets. In this notebook, we will asses its performance to predict Heart Disease.
+- [Getting Started](#getting-started)
+- [Table of Content](#table-of-content)
+- [Data Description](#data-description)
+- [Feedback and Support](#feedback-and-support)
+- [Colophon](#colophon)
 
 ## Getting Started
 
-### 1. Clone the code in this repository
+### 1. Download the code locally
 
-_Everything_ that you need to work on this tutorial is contained in this
-repository! So download or clone this repository on your computer.
-
-Using the `git` command from the Terminal:
+Using the `git` command from the terminal:
 
 ```bash
 $ git clone https://github.com/openmined/syft-heart-disease-tutorial
 ```
 
+or by clicking on `Code >> Local >> Download ZIP` on the repository main page.
+
 ### 2. Install PySyft and ML Packages
 
-Please refer to the [Quick Install](https://docs.openmined.org/en/latest/quick-install.html) guide to learn how to install PySyft. 
-
-After installing PySyft, please also install the other few extra dependencies required to execute the ML code in this tutorial:
+The repository includes a `requirements.txt` file with the list of 
+all the Python packages required to work with the notebooks. 
+You can install all these dependencies using `pip`:
 
 ```bash
 $ pip install -r requirements.txt
 ```
 
-**Note**: It is recommended to install PySyft and all the dependencies within a dedicated Python Virtual environment 
+Please refer to the [Quick Install](https://docs.openmined.org/en/latest/quick-install.html) guide to learn how to install PySyft. 
+
+**Note**: It is recommended to install PySyft and all the dependencies within a dedicated Python virtual environment 
 (using the _virtual-env_ manager of choice, e.g. [Miniconda](https://docs.anaconda.com/miniconda/), [pyenv](https://github.com/pyenv/pyenv))
 
 #### 3. Launch the Datasites
 
-Setup and Launch the PySyft Datasites using the `launch_datasites.py` script included in this tutorial. From the terminal:
+Setup and launch the PySyft Datasites using the `launch_datasites.py` script included in the repository. From the command line:
 
 ```bash
 $ python launch_datasites.py
 ```
 
-**Note**: Please, keep the terminal open, as this will keep all the servers alive which will be running in background. You can shutdown all the servers by simply typing `Ctrl+C` on your keyboard.
+**Note**: Please, keep the terminal open, as this will keep all the servers running in background. You can stop all the servers, and terminate
+the program by typing `Ctrl+C`.
+
+## Table of Content
+
+- 🧭 [(Intro) Setup Datasites](./00-Setup-Datasites.ipynb): 
+    Familiarise with the data, and the Datasites.
+- 📊 [1. Compare Demographics](./01-Compare-Demographics.ipynb) [✅]: 
+    Study the distribution of the demographics in the data, using PySyft.
+- 🤖 [2. ML Model Training Experiment](./02-Model-Training-Experiment.ipynb) (🌟): 
+    Use PySyft to train a Machine learning classifier, using data across the four distributed datasites, and _without seeing the data_!
+- 📝 [3. ML Model Evaluation Experiment](./03-Model-Evaluation-Experiment.ipynb) (🌟🌟):
+    Assess the performance of the trained classifiers on each remote datasite.
+- 🗳️ [4. Ensemble Learning Experiment](./04-Ensemble-learning-Experiment.ipynb) (🌟🌟🌟):
+    Create an Ensemble using all the models trained remotely and independently on each dataset. We will test this strategy to obtain
+    a ML predictive model that has seen `4x` more medical data in training.
 
 ## Data Description
 
@@ -91,7 +100,7 @@ The authors of the dataset have requested that any use of the data include the n
 
 ## Feedback and Support
 
-If you spot any error/mistake, please feel free to reach out directly to [me via email](mailto:valerio@openmined.org?subject=PySyft%20%HD%20Tutorial%20Issue), or to open an [Issue](http://github.com/openmined/syft-heart-disease-tutorial/issues) on the repository.
+If you spot any error or mistake, please feel free to reach out directly to [me via email](mailto:valerio@openmined.org?subject=PySyft%20%HD%20Tutorial%20Issue), or to open an [Issue](http://github.com/openmined/syft-heart-disease-tutorial/issues) on the repository.
 
 Any feedback will be very much appreciated! Thank you! 🙏
 
@@ -134,9 +143,3 @@ Under the following terms:
 * **No additional restrictions** --- You may not apply legal terms or
 technological measures that legally restrict others from doing
 anything the license permits.
-
-
-
-
-
-
