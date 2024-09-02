@@ -52,6 +52,10 @@ main .container .row {
     max-width: 40px;
 }
 
+.bio {
+    font-size: 1rem;
+}
+
 /*
 Quote Style
 Adapted from: https://codepen.io/Rases/pen/pogVVwp
@@ -85,12 +89,13 @@ blockquote.quote:after{
     font-family: FontAwesome;
     position: absolute;
     font-size:30px;
-    /*background-color: #f3ec78;*/
+    background-color: #f3ec78;
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
     -webkit-text-fill-color: transparent;
+
 }
 
 blockquote.EN:before{
@@ -99,7 +104,7 @@ blockquote.EN:before{
     margin-right: -20px;
     right: 100%;
     width: 5%;
-    background-image: linear-gradient(45deg, #F79763, #CC677B);
+    background-image: linear-gradient(to bottom, #F79763, #CC677B);
 }
 
 blockquote.EN:after{
@@ -109,6 +114,6 @@ blockquote.EN:after{
     top: auto;
     bottom: -20px;
     width: 5%;
-    background-image: linear-gradient(45deg, #53BEA9, #96D195);
+    background-image: linear-gradient(to bottom, #53BEA9, #96D195);
 }
 
