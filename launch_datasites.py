@@ -4,7 +4,7 @@
 from threading import Thread, Event
 from time import sleep
 from datasites import spawn_server, check_and_approve_incoming_requests
-from datasites import CONNECTION_STRINGS
+from datasites import DATASITE_URLS
 
 
 class DataSiteThread(Thread):
