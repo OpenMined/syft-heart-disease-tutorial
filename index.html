@@ -36,50 +36,8 @@
 
     gtag('config', 'G-EKD4HP4JEX');
     </script>
+    <link rel="stylesheet" href="assets/css/style.css" />
 
-    <style>
-        * {
-            font-family: Rubik, serif;
-            font-weight: lighter;
-        }
-
-        code, pre {
-            font-family: "Fira Code", monospace;
-        }
-
-        #intro {
-            background-image: url("https://openmined.org/wp-content/uploads/2024/08/image-1-1-1024x501.png");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: bottom;
-            /*margin-bottom: 120px;*/
-
-        }
-
-        .head {
-            text-align: center;
-            align-items: center;
-            padding-top: 150px;
-        }
-
-        .head .logo {
-            padding-right: 50px;
-            max-width: 220px;
-        }
-
-        #intro .container {
-            margin-top: 150px;
-        }
-
-        main {
-            margin-top: 25px;
-        }
-
-        main .container .row {
-            margin: 20px 0;
-        }
-
-    </style>
     <title>PySyft Heart Disease Tutorial</title>
 </head>
 <body>
@@ -87,7 +45,7 @@
     <div class="row align-items-center justify-content-center">
         <div class="col-md-12">
             <div class="head">
-                <img class="logo" alt="Syft Logo" src="./Syft-Logo-Stacked.png">
+                <img class="logo" alt="Syft Logo" src="./assets/imgs/Syft-Logo-Stacked.png">
                 <br>
                 <h1 class="display-3">Study Heart Disease using PySyft</h1>
             </div>
@@ -98,20 +56,16 @@
         <div class="row align-content-center">
             <div class="col-md-10">
                 <h2 class="display-4">Welcome!</h2>
+                <blockquote class="blockquote callout quote EN">
+                    Can we use Machine Learning on medical data, <u>without seeing the data</u> ?
+                </blockquote>
                 <p>
-                    In this tutorial we will study Heart Disease using Machine learning, and PySyft.
-                    In particular PySyft will be crucial to work with
-                    <b>multiple medical datasets</b>, and while retaining privacy!
+                    In this tutorial we will learn how to use PySyft to run
+                    Machine learning experiments on <b>multiple medical datasets</b>
+                    distributed across four Datasite servers, while maintaining privacy!
                 </p>
                 <figure>
-                    <p>The task that we are about to challenge ourselves is:</p>
-                    <blockquote class="blockquote display-6">
-                        <p>Can we run Machine Learning models on
-                        (non-public) medical data, <em>without seeing the data</em>?
-                        </p>
-                    </blockquote>
                     <p>
-                        In this tutorial we will learn <b>How</b> using PySyft!
                         &hyphen;&hyphen;&hyphen;
                         <span>Let&#39;s get started! 🚀</span>
                     </p>
@@ -124,21 +78,44 @@
     <div class='container'>
         <div class="row">
             <div class="col">
-                <h3><span>Heart Disease Study 💟 </span></h3>
-                <p>We will use the <strong>full</strong> version of the Heart Disease dataset, as available on <a href='https://archive.ics.uci.edu/dataset/45/heart+disease'>UCI ML</a>.</p>
-                <p>This database is the result of a study for the diagnosis of coronary artery disease, as presented in this <a href='https://www.semanticscholar.org/paper/International-application-of-a-new-probability-for-Detrano-J%C3%A1nosi/a7d714f8f87bfc41351eb5ae1e5472f0ebbe0574'>paper</a>.</p>
-                <p>The <em>full</em> dataset contains the data as collected by patients in four different hospitals, in 1988: </p>
+                <h3><span>Heart Disease Study 🫀</span></h3>
+                <p>We will use the <strong>full</strong> version of the Heart Disease dataset,
+                    as available on the
+                    <a href='https://archive.ics.uci.edu/dataset/45/heart+disease'>UCI ML</a>
+                    repository.</p>
+                <p>The database is the result of a study for the diagnosis of coronary artery disease,
+                    as described in this
+                    <a href='https://www.semanticscholar.org/paper/International-application-of-a-new-probability-for-Detrano-J%C3%A1nosi/a7d714f8f87bfc41351eb5ae1e5472f0ebbe0574'>paper</a>.
+                </p>
+                <p>The dataset contains data as collected by patients in four different hospitals, in 1988: </p>
                 <ul>
                     <li>Cleveland Clinic in Cleveland, Ohio (<code>303</code> patients);</li>
                     <li>Hungarian Institute of Cardiology in Budapest, Hungary (<code>425</code> patients);</li>
                     <li>Veterans Administration Medical Center in Long Beach, California (<code>200</code> patients)</li>
                     <li>University Hospitals in Zurich and Basel (<code>143</code> patients).</li>
                 </ul>
-                <p>💡 Each Hospital will correspond to a <u>single PySyft Datasite, hosting their own
-                    version of the <code>Heart Study Data</code></u>.</p>
+                <p>💡Each hospital will be mapped to a single PySyft Datasite,
+                    hosting their own version of the <code>Heart Study Data</code> data.
+                    We will pretend that these data were not public - as it is most likely the case
+                    with <em>real medical data</em>. Therefore our main focus in the tutorial
+                    will be to learn how to work with non-public data, while maintaining privacy.
+                </p>
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-10">
+                <h4><span>What you will learn 🎓</span></h4>
+                <span>In this tutorial, you will learn how to&hellip;</span>
+                <ol>
+                    <li>work remotely with non-public medical data.</li>
+                    <li>use PySyft to run Machine learning experiments on non-public and
+                        distributed medical datasets.</li>
+                    <li>take advantage of getting access to multiple medical datasets for better
+                        Machine learning modelling.</li>
+                </ol>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-10">
                 <h3><span>Content 🧑‍💻</span></h3>
@@ -148,8 +125,8 @@
                 </p>
                 <ul>
                     <li>
-                        🧭 <a href='https://github.com/OpenMined/syft-heart-disease-tutorial/blob/main/00-Setup-Datasite.ipynb' title="Setup Datasites" target="_blank">
-                            (Intro) Setup Datasite</a>
+                        🧭 <a href='https://github.com/OpenMined/syft-heart-disease-tutorial/blob/main/00-Setup-Datasites.ipynb' title="Setup Datasites" target="_blank">
+                            (Intro) Setup Datasites</a>
                         <p>
                             <span class="blockquote-footer">
                             In this first notebook, we will familiarise with the data,
