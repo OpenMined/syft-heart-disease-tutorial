@@ -19,7 +19,7 @@ Let's get started! 🚀
 
 ## Table of Content
 
-- [(Intro) Setup Datasite](./00-Setup-Datasite.ipynb) [🧭]: 
+- [(Intro) Setup Datasites](./00-Setup-Datasites.ipynb) [🧭]: 
     Familiarise with the available PySyft Datasites
 - [1. Compare Demographics](./01-Compare-Demographics.ipynb) [✅]: 
     Study the distribution of the demographics in the data, using PySyft 
@@ -40,7 +40,7 @@ repository! So download or clone this repository on your computer.
 Using the `git` command from the Terminal:
 
 ```bash
-$ git clone https://openmined/syft-heart-disease-tutorial
+$ git clone https://github.com/openmined/syft-heart-disease-tutorial
 ```
 
 ### 2. Install PySyft and ML Packages
@@ -130,7 +130,7 @@ license terms.
 Under the following terms:
 
 * **Attribution** --- You must give appropriate credit, and provide a link to the
-  [LICENSE](https://github.com/leriomaggio/ppml-tutorial/LICENSE) [`cc-by-human`](https://creativecommons.org/licenses/by/4.0/),
+  [LICENSE](https://github.com/openmined/syft-heart-tutorial/LICENSE) [`cc-by-human`](https://creativecommons.org/licenses/by/4.0/),
   and indicate if changes were made.
   You may do so in any reasonable manner, but not in any way that suggests the
   licensor endorses you or your use.
