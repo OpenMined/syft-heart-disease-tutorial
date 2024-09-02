@@ -56,9 +56,6 @@ FEATURE_RANGES = {
     "num": range(5),
 }
 
-
-MISSING_VALUES = ["ca", "thal"]
-
 CLEVELAND = "Cleveland Clinic"
 HUNGARY = "Hungarian Inst. of Cardiology"
 SWITZERLAND = "Univ. Hospitals Zurich and Basel"
@@ -114,16 +111,26 @@ def load_data(
 
 
 def generate_mock(data: pd.DataFrame, seed: int = 12345) -> pd.DataFrame:
-    """Generates random mock heart-disease data, given an input seed"""
+    """Generates random mock heart-disease data, given an input seed.
+
+    The number of samples in each dataset will be completely random.
+    However, for each colum (i.e. feature):
+        - data values will be mapped to the same original domain;
+        - the rate of missing values (if any) will be kept the same, proportionally.
+    """
 
     np.random.seed(seed=seed)
-    n_samples = np.random.choice(np.arange(50, 300))
+    mock_n_samples = np.random.choice(np.arange(50, 300))
     data_info = {}
     for column, feature_range in FEATURE_RANGES.items():
-        rnd_values = np.random.choice(feature_range, size=n_samples)
-        if column in MISSING_VALUES:
-            na_rate = data[column].isnull().sum()
-            rnd_indices = np.random.choice(np.arange(n_samples), size=na_rate)
+        rnd_values = np.random.choice(feature_range, size=mock_n_samples)
+        true_na_rate = data[column].isna().sum()
+        if true_na_rate > 0:
+            true_n_samples = data.shape[0]
+            mock_na_rate = int(
+                np.rint((true_na_rate * mock_n_samples) / true_n_samples)
+            )
+            rnd_indices = np.random.choice(np.arange(mock_n_samples), size=mock_na_rate)
             rnd_values = rnd_values.astype(np.float32)
             rnd_values[rnd_indices] = np.nan
         data_info[column] = rnd_values
