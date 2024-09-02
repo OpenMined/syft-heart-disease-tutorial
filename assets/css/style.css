@@ -1,0 +1,107 @@
+/*redefine bs vars*/
+
+:root {
+    --bs-body-font-size: 1.1rem;
+    --bs-body-line-height: 1.6;
+}
+
+* {
+    font-family: Rubik, serif;
+    font-weight: lighter;
+}
+
+code, pre {
+    font-family: "Fira Code", monospace;
+}
+
+#intro {
+    background-image: url("https://openmined.org/wp-content/uploads/2024/08/image-1-1-1024x501.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    /*margin-bottom: 120px;*/
+
+}
+
+.head {
+    text-align: center;
+    align-items: center;
+    padding-top: 150px;
+}
+
+.head .logo {
+    padding-right: 50px;
+    max-width: 220px;
+}
+
+#intro .container {
+    margin-top: 150px;
+}
+
+main {
+    margin-top: 25px;
+}
+
+main .container .row {
+    margin: 20px 0;
+}
+
+/*
+Quote Style
+Adapted from: https://codepen.io/Rases/pen/pogVVwp
+ */
+
+blockquote.quote {
+    position: relative;
+    text-align: center;
+    padding: 1rem 1.25rem;
+    width: 89%;  /* create space for the quotes */
+    color: #484748;
+    margin: 1rem auto 1rem;
+    font-style: italic;
+
+}
+
+blockquote.EN {
+    /*background:*/
+    /*        linear-gradient(to right, #6976AE 4px, transparent 4px) 0 100%,*/
+    /*        linear-gradient(to left, #CC677B 4px, transparent 4px) 100% 0,*/
+    /*        linear-gradient(to bottom, #6976AE 4px, transparent 4px) 100% 0,*/
+    /*        linear-gradient(to top, #CC677B 4px, transparent 4px) 0 100%;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: 20px 20px;*/
+}
+
+
+/* -- create the quotation marks -- */
+blockquote.quote:before,
+blockquote.quote:after{
+    font-family: FontAwesome;
+    position: absolute;
+    font-size:30px;
+    /*background-color: #f3ec78;*/
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+blockquote.EN:before{
+    content: "\f10d";
+    top: -12px;
+    margin-right: -20px;
+    right: 100%;
+    width: 5%;
+    background-image: linear-gradient(180deg, #F79763, #CC677B);
+}
+
+blockquote.EN:after{
+    content: "\f10e";
+    margin-left: -20px;
+    left: 100%;
+    top: auto;
+    bottom: -20px;
+    width: 5%;
+    background-image: linear-gradient(#53BEA9, #96D195);
+}
