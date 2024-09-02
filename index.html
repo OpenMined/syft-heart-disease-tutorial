@@ -118,76 +118,75 @@
         </div>
         <div class="row">
             <div class="col-md-10">
-                <h3><span>Content 🧑‍💻</span></h3>
+                <h3><span>Materials 🧑‍💻</span></h3>
                 <p>
-                    The tutorial is organised into multiple Jupyter notebooks that allow you to
-                    work on the different steps of our Machine learning experiment, using PySyft.
+                    The tutorial is organised into multiple Jupyter notebooks that
+                    will guide you to the different steps of our Machine learning experiment,
+                    using PySyft.
                 </p>
                 <ul>
                     <li>
-                        🧭 <a href='https://github.com/OpenMined/syft-heart-disease-tutorial/blob/main/00-Setup-Datasites.ipynb' title="Setup Datasites" target="_blank">
+                        🧭 <a href='https://github.com/OpenMined/syft-heart-disease-tutorial/blob/main/00-Setup-Datasites.ipynb'
+                             title="Setup Datasites" target="_blank">
                             (Intro) Setup Datasites</a>
                         <p>
                             <span class="blockquote-footer">
-                            In this first notebook, we will familiarise with the data,
-                            and the Datasites
+                            This introductory notebook will help you to get your bearings with
+                                the data, and the PySyft Datasites.
                             </span>
                         </p>
                     </li>
-                    <li>✅
+                    <li>📊
                         <a href='https://github.com/OpenMined/syft-heart-disease-tutorial/blob/main/01-Compare-Demographics.ipynb'
                            title="Compare Demographics" target="_blank">
                         1. Compare Demographics</a>
                         <p>
                             <span class="blockquote-footer">
                                 In this notebook we will start our data science journey,
-                                study the distribution of the demographics in the data.
-                                This information is very valuable as a first step, to get
-                                insights about the data! The interesting part? We will
-                                gather all the demographics across the four datasets
-                                <em>without accessing the data</em>!
+                                analysing the distribution of demographics in the data.
+                                <em>Why this is interesting ?</em>
+                                We will learn how to get our first insights about the data,
+                                <em>without ever seeing the data</em>!
                             </span>
                         </p>
                     </li>
-                    <li> 🌟 <a href='https://github.com/OpenMined/syft-heart-disease-tutorial/blob/main/02-Model-Training-Experiment.ipynb'
+                    <li> 🤖 <a href='https://github.com/OpenMined/syft-heart-disease-tutorial/blob/main/02-Model-Training-Experiment.ipynb'
                            title="ML Model Training Experiment" target="_blank">
                             2. ML Model Training Experiment</a>:
                         <p>
                             <span class="blockquote-footer">
                                 Let's use PySyft to train a Machine learning classifier,
-                            using data across the four distributed datasites, and
-                            <em>without seeing the data</em>! We will learn how to train
-                                a model, without looking at the data!
-                                This is going to be our 🌟 research experiment with PySyft!
+                            using data across the four distributed datasites, while also
+                                maintain the non-public data private!
+                                (This is going to be our 🌟 research experiment with PySyft!)
                             </span>
                         </p>
                     </li>
-                    <li> 🌟🌟<a href='https://github.com/OpenMined/syft-heart-disease-tutorial/blob/main/03-Model-Evaluation-Experiment.ipynb'
+                    <li> 📝 <a href='https://github.com/OpenMined/syft-heart-disease-tutorial/blob/main/03-Model-Evaluation-Experiment.ipynb'
                            title="ML Model Evaluation Experiment" target="_blank">
                         3. ML Model Evaluation Experiment</a>:
                         <p><span class="blockquote-footer">
                             It's now time to assess the performance of the trained classifiers
                             on each remote datasite. We will gather evaluation metrics for
                             the trained models, and compare the results!
-                            We will learn how to create specialised **Syft function**
+                            We will learn how to create specialised <em>Syft function</em>
                             that guarantees control over the input/output policies of our
                             remote code execution.
-
-                            This will be our 🌟🌟 research experiment with PySyft!
+                            (This will be our 🌟🌟 research experiment with PySyft!)
                         </span>
                         </p>
                     </li>
-                    <li>🌟🌟🌟<a href='https://github.com/OpenMined/syft-heart-disease-tutorial/blob/main/04-Ensemble-learning-Experiment.ipynb'
+                    <li> 🗳️ <a href='https://github.com/OpenMined/syft-heart-disease-tutorial/blob/main/04-Ensemble-learning-Experiment.ipynb'
                            title="Ensemble Learning Experiment" target="_blank">
                         4. Ensemble Learning Experiment</a> :
                         <p>
                             <span class="blockquote-footer">
-                                In this last step, we will use an Ensemble model as a strategy to
-                                combine the multiple ML models trained on the four datasets.
-                                In this way, we will be able to assess the performance of
-                                our classifier, using (indirectly) the knowledge
-                                gathered by training our models on multiple medical dataset!
-                                This will be our 🌟🌟🌟 and last research experiment with PySyft!
+                                In this last step, we will use an Ensemble as a strategy
+                                to combine the multiple ML models trained on the four
+                                medical datasets.
+                                In this way, we will be able to use a ML model that has seen
+                                <code>4x</code> more data to generate our heart disease prediction!
+                                (This will be our 🌟🌟🌟 and last research experiment with PySyft!)
                         </span>
                     </p></li>
                 </ul>
@@ -195,10 +194,15 @@
         </div>
         <div class="row">
             <div class="col">
-                <h3><span>Ready to get started ? 🚀</span></h3>
-                <p><em>Everything</em> you need to work on the tutorial is available on Github!
-                    All you need to do is to download or clone the repository on your computer,
-                    and start your journey!
+                <h3><span>Ready to get started ?</span>
+                    <img src="./assets/imgs/gh-logo.png" class="gh-logo"/> </h3>
+                <p><em>Everything</em> you need to start working with the tutorial is available on
+                    GitHub!
+                    You can start by cloning the repo, and follow the instructions in the
+                    <a href="https://github.com/OpenMined/syft-heart-disease-tutorial/blob/main/README.md"
+                       title="PySyft Heart Disease Tutorial Repository" target="_blank">
+                        README
+                    </a> file:
                 </p>
                 <pre class="lead">
 <code class='theme-atom-one-dark language-shell'>$ git clone https://github.com/openmined/syft-heart-disease-tutorial
