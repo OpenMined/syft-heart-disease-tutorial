@@ -61,15 +61,15 @@ the program by typing `Ctrl+C`.
 
 - 🧭 [(Intro) Setup Datasites](./00-Setup-Datasites.ipynb): 
     Familiarise with the data, and the Datasites.
-- 📊 [1. Compare Demographics](./01-Compare-Demographics.ipynb) [✅]: 
+- 📊 [1. Compare Demographics](./01-Compare-Demographics.ipynb): 
     Study the distribution of the demographics in the data, using PySyft.
-- 🤖 [2. ML Model Training Experiment](./02-Model-Training-Experiment.ipynb) (🌟): 
-    Use PySyft to train a Machine learning classifier, using data across the four distributed datasites, and _without seeing the data_!
-- 📝 [3. ML Model Evaluation Experiment](./03-Model-Evaluation-Experiment.ipynb) (🌟🌟):
-    Assess the performance of the trained classifiers on each remote datasite.
-- 🗳️ [4. Ensemble Learning Experiment](./04-Ensemble-learning-Experiment.ipynb) (🌟🌟🌟):
+- 🤖 [2. ML Model Training Experiment](./02-Model-Training-Experiment.ipynb): 
+    Use PySyft to train a Machine learning classifier, using data across the four distributed datasites, and _without seeing the data_!  (🌟)
+- 📝 [3. ML Model Evaluation Experiment](./03-Model-Evaluation-Experiment.ipynb):
+    Assess the performance of the trained classifiers on each remote datasite.  (🌟🌟)
+- 🗳️ [4. Ensemble Learning Experiment](./04-Ensemble-learning-Experiment.ipynb):
     Create an Ensemble using all the models trained remotely and independently on each dataset. We will test this strategy to obtain
-    a ML predictive model that has seen `4x` more medical data in training.
+    a ML predictive model that has seen `4x` more medical data in training. (🌟🌟🌟)
 
 ## Data Description
 
