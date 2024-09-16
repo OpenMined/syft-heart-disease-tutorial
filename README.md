@@ -8,10 +8,17 @@
 In this tutorial we will use PySyft to study heart disease, and by doing so 
 we will try to answer the following question: 
 
-> Can we run data science and Machine Learning experiments on _multiple_ and _distributed_ medical data, _without seeing the data_?
+> Can we run Machine Learning experiments on _multiple_ and _distributed_ medical datasets, _without seeing the data_?
 
 We are going to to learn _how_! 
 All you need to get started is PySyft, and a Jupyter notebook! 🚀
+
+Read more on <a href="https://blog.openmined.org/a-python-package-and-an-email-is-all-you-need/"
+                                   target="_blank"
+                                   title="Need more medical data? A Python package and an email is all you need!">
+                    this post</a> on OpenMined blog.
+
+## Table of Content
 
 - [Getting Started](#getting-started)
 - [Table of Content](#table-of-content)
