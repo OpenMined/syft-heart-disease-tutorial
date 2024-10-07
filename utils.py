@@ -22,6 +22,11 @@ def check_status_last_code_requests(datasites: dict[str, sy.DatasiteClient]) -> 
         display(datasite.code[-1].status.get_status_message())  # type: ignore
 
 
+def requests_accepted(datasites: dict[str, sy.DatasiteClient]) -> list[bool]:
+    """display status message of last code request sent to each datasite"""
+    return [dsite.code[-1].status.approved for dsite in datasites.values()]
+
+
 def get_model_file(datasite_name: str) -> str:
     return f"{datasite_name.replace(".", "").replace(" ", "_").lower()}_model.jbl"
 
@@ -76,7 +81,7 @@ def serialize_and_upload(
     return model_action_object.send(to)
 
 
-def plot_all_confusion_matrices(cms):
+def plot_all_confusion_matrices(cms, title: str = None):
     fig, axes = plt.subplots(2, 2, figsize=(10, 8), sharey="row")
 
     for coords, (name, cf_matrix) in zip(product(range(2), repeat=2), cms.items()):
@@ -91,5 +96,56 @@ def plot_all_confusion_matrices(cms):
     fig.text(0.4, -0.05, "Predicted label", ha="left")
     plt.tight_layout()
 
+    if title:
+        plt.suptitle(title, y=1.05)
+
     fig.colorbar(disp.im_, ax=axes)
+    return fig
+
+
+def plot_fl_metrics(
+    datasites: dict[str, sy.DatasiteClient],
+    fl_metrics: dict[int, list[tuple]],
+    title: str = None,
+):
+    fig = plt.figure()
+    ds_names = list(datasites.keys())
+
+    for idx, (name, style) in enumerate(
+        zip(ds_names, ("solid", "dotted", "dashed", "dashdot"))
+    ):
+        metrics = [fl_metrics[e][idx][0] for e in fl_metrics]
+        train_scores, test_scores = [score[0]["mcc"] for score in metrics], [
+            score[1]["mcc"] for score in metrics
+        ]
+        plt.plot(
+            range(len(train_scores)),
+            train_scores,
+            linestyle=style,
+            linewidth=2,
+            color="#1f77b4",
+            label=f"{name}-Train",
+        )
+        plt.plot(
+            range(len(test_scores)),
+            test_scores,
+            linestyle=style,
+            linewidth=2,
+            color="#ff7f0e",
+            label=f"{name}-Test",
+        )
+        plt.text(
+            len(test_scores) - 1,
+            test_scores[-1] + 0.02,
+            f"{test_scores[-1]:.3f}",
+            color="#ff7f0e",
+        )
+
+    plt.ylim(-0.05, 1.05)
+    plt.xlim(
+        0, (total := len(train_scores)) + (2 if total < 20 else 10)
+    )  # any train_scores is fine. All of the same length
+    plt.legend(loc="best", bbox_to_anchor=(1, 1))
+    if title:
+        plt.title(title)
     return fig
