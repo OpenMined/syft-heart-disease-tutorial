@@ -81,7 +81,13 @@ def spawn_server(sid: int):
     """Utility function to launch a new instance of a PySyft Datasite"""
     name = NAMES[sid % len(NAMES)]
 
-    data_site = sy.orchestra.launch(name=name, port=DATASITE_PORTS[name], reset=True)
+    data_site = sy.orchestra.launch(
+        name=name,
+        port=DATASITE_PORTS[name],
+        reset=True,
+        n_consumers=3,
+        create_producer=True,
+    )
     client = data_site.login(email="info@openmined.org", password="changethis")
 
     # Customise Settings
@@ -89,6 +95,17 @@ def spawn_server(sid: int):
     client.settings.welcome_customize(
         markdown=_get_welcome_message(name=name, full_name=INSTITUTE_FULLNAMES[name])
     )
+    client.users.create(
+        email="researcher@openmined.org",
+        password="****",
+        password_verify="****",
+        name="OpenMined Researcher",
+        institution="OpenMined",
+        website="https://openmined.org",
+    )
+
+    user = client.users[-1]
+    # user.allow_mock_execution(True)
 
     ds = create_syft_dataset(name)
     if not ds is None:
@@ -110,6 +127,6 @@ def check_and_approve_incoming_requests(client):
     while not current_thread().stopped():  # type: ignore
         requests = client.requests
         for r in filter(lambda r: r.status.value != 2, requests):  # 2 == APPROVED
-            r.approve()
+            r.approve(approve_nested=True)
             # print("New Request approved in ")
         sleep(1)
