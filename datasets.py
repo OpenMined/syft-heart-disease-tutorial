@@ -29,15 +29,7 @@ FEATURES = [
     "thal",
 ]
 
-CATEGORICAL = [
-    "sex",
-    "cp",
-    "fbs",
-    "restecg",
-    "exang",
-    "slope",
-    "thal",
-]
+CATEGORICAL = ["sex", "cp", "fbs", "restecg", "exang", "slope", "thal", "ca"]
 
 FEATURE_RANGES = {
     "age": range(1, 100),
