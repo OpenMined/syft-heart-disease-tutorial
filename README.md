@@ -13,10 +13,11 @@ we will try to answer the following question:
 We are going to to learn _how_! 
 All you need to get started is PySyft, and a Jupyter notebook! 🚀
 
-Read more on <a href="https://blog.openmined.org/a-python-package-and-an-email-is-all-you-need/"
-                                   target="_blank"
-                                   title="Need more medical data? A Python package and an email is all you need!">
-                    this post</a> on OpenMined blog.
+#### Related posts on OpenMined Blog:
+
+1. <a href="https://blog.openmined.org/a-python-package-and-an-email-is-all-you-need/" target="_blank" title="Need more medical data? A Python package and an email is all you need!">Need more medical data? A Python package and an email is all you need!</a>.
+
+2. <a href="https://blog.openmined.org/fl-in-10-lines-of-code-with-pysyft/" target="_blank" title="Federated Learning in 10 lines of Code, with PySyft">Federated Learning in 10 lines of Code, with PySyft</a>.
 
 ## Table of Content
 
