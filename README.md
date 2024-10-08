@@ -77,6 +77,10 @@ the program by typing `Ctrl+C`.
 - 🗳️ [4. Ensemble Learning Experiment](./04-Ensemble-learning-Experiment.ipynb):
     Create an Ensemble using all the models trained remotely and independently on each dataset. We will test this strategy to obtain
     a ML predictive model that has seen `4x` more medical data in training. (🌟🌟🌟)
+- ⚗️ [5. Federated Learning Experiment](./05-Federated-learning-Experiment.ipynb):
+    Run a full Federated Learning experiment using PySyft and Scikit-learn. We'll train a linear classifier on each datasite and explore how to pass model parameters as inputs to a Syft function. (🌟🌟🌟🌟)
+- 🔮 [6. Federated Learning Experiment with PyTorch](./06-Federated-learning-Experiment-with-PyTorch.ipynb):
+    Run a complete Federated Learning experiment using PySyft and PyTorch. We'll train a non-linear Neural Network across multiple datasites and learn how to leverage PyTorch within PySyft to seamlessly execute FL experiments. (🌟🌟🌟🌟🌟)
 
 ## Data Description
 
