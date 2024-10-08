@@ -122,3 +122,9 @@ blockquote.EN:after{
     background-image: linear-gradient(to bottom, #53BEA9, #96D195);
 }
 
+.handwriting-text {
+    font-family: "Indie Flower", cursive;
+    font-weight: 700;
+    font-style: normal;
+}
+
