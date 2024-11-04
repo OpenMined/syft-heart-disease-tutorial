@@ -28,7 +28,7 @@ def requests_accepted(datasites: dict[str, sy.DatasiteClient]) -> list[bool]:
 
 
 def get_model_file(datasite_name: str) -> str:
-    return f"{datasite_name.replace(".", "").replace(" ", "_").lower()}_model.jbl"
+    return f"{datasite_name.replace('.', '').replace(' ', '_').lower()}_model.jbl"
 
 
 def dump_model(
