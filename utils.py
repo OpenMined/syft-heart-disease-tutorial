@@ -86,7 +86,7 @@ def plot_all_confusion_matrices(cms, title: str = None):
 
     for coords, (name, cf_matrix) in zip(product(range(2), repeat=2), cms.items()):
         disp = ConfusionMatrixDisplay(cf_matrix, display_labels=["Absence", "Presence"])
-        disp.plot(ax=axes[*coords], xticks_rotation=45)
+        disp.plot(ax=axes[coords], xticks_rotation=45)
         disp.ax_.set_title(name)
         disp.im_.colorbar.remove()  # type: ignore
         disp.ax_.set_xlabel("")
